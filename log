@@ -1,0 +1,31 @@
+> nodemachine@0.0.4 start \nodemachine
+> node NODEReactMachine0.0.4.js
+
+[*]	 Creado: SINR
+[*>]	  Creado:	/SINR/public
+[*>]	  Creado:	/SINR/public/assets
+[*>]	  Creado:	/SINR/public/assets/icon
+[*>]	  Creado:	/SINR/public/assets/logos
+[*>]	  Creado:	/SINR/public/assets/imgs
+[*]	    Creado:	/SINR/src
+[*>]	  Creado:	/SINR/src/containers
+[*>]	  Creado:	/SINR/src/components
+[*>]	  Creado:	/SINR/src/context
+[*>]	  Creado:	/SINR/src/pages
+[*>]	  Creado:	/SINR/src/hooks
+[*>]	  Creado:	/SINR/src/routes
+[!]	    Creado:	SINR/.babelrc
+[R]	    Creado:	SINR/README.md
+[styles]Creado:	nodemachine/SINR/src/_vars.scss
+[!]	    Creado:	SINR/package.json
+[!]	    Creado:	SINR/webpack.config.js
+[html]  Creado:	nodemachine/SINR/public/index.html
+[js]	  Creado:	nodemachine/SINR/src/index.js
+[svg]	  Creado:	nodemachine/SINR/src/pages/Logo.svg
+[jsx]	  Creado:	nodemachine/SINR/src/routes/App.jsx
+[jsx]	  Creado:	nodemachine/SINR/src/context/AppContext.jsx
+[jsx]	  Creado:	nodemachine/SINR/src/pages/Home.jsx
+[css]	  Creado:	nodemachine/SINR/src/pages/module.css
+[jsx]	  Creado:	nodemachine/SINR/src/containers/Layout.jsx
+[jsx]	  Creado:	nodemachine/SINR/src/pages/NotFound.jsx
+[jsx]	  Creado:	nodemachine/SINR/src/hooks/useInitialState.jsx
