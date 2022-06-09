@@ -54,8 +54,7 @@ En el proceso de desarollo la app despliega en entorno de desarrollo en:
 .gitignore
 .git
 
-npm install -D @mui/material @emotion/react @emotion/styled
-npm install -D formik --save
+npm install -D @mui/material @emotion/react @emotion/styled && npm install -D formik --save && npm install @mui/x-data-grid
 ```
 
 #### Entry point
