@@ -1,0 +1,73 @@
+{
+    "title": "Kanban",
+    "cols": [
+        {
+            "title": "Bugs",
+            "tasks": [
+                {
+                    "text": "TablePost: 3 point options",
+                    "id": "cl4a4ykow000i3z5x1kwlmtoa"
+                }
+            ],
+            "id": "cl4a4v9hj000a3z5xzy4deddk",
+            "color": "#eb144c"
+        },
+        {
+            "title": "To-Do",
+            "tasks": [
+                {
+                    "text": "MyHooksLibrary",
+                    "id": "cl4a50rku000l3z5x0atguw1f"
+                },
+                {
+                    "text": "Finalize README.md",
+                    "id": "cl4a50cmi000k3z5xp9yv9p0g"
+                },
+                {
+                    "text": "Extraction and Fragmetation JSX files",
+                    "id": "cl4a4z838000j3z5xieq4do4f"
+                },
+                {
+                    "text": "Drawer Styles and usability",
+                    "id": "cl4a4xog2000h3z5xcwu6dzm3"
+                },
+                {
+                    "text": "TOAST notification",
+                    "id": "cl4a4x44c000g3z5x7j9xvio5"
+                },
+                {
+                    "text": "POST, PATCH, DELETE",
+                    "id": "cl4a4vp7z000f3z5xk8r09qfo"
+                }
+            ],
+            "id": "cl4a4v9hj000c3z5xakizdpn3",
+            "color": "#fcb900"
+        },
+        {
+            "title": "Doing",
+            "tasks": [
+                {
+                    "text": "Implements mut Arra data",
+                    "id": "cl4a4v9hj000b3z5xdzleq2sg"
+                }
+            ],
+            "id": "cl4a4v9hj000d3z5xvjm77v5e",
+            "color": "#0693e3"
+        },
+        {
+            "title": "Done",
+            "tasks": [],
+            "id": "cl4a4v9hj000e3z5x69v3qxs6",
+            "color": "#00d084"
+        },
+        {
+            "title": "Archived",
+            "tasks": [],
+            "id": "cl4a50zzg000m3z5xsj6yr26i",
+            "color": "var(--vscode-editor-foreground)"
+        }
+    ],
+    "autosave": true,
+    "saveToFile": true,
+    "timestamp": 1654967713073
+}

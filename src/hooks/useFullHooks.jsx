@@ -234,12 +234,13 @@ import React, { useEffect } from 'react';
 	// 		.then(post=> setArrayData(post.data))
 	// },[]);
 
+
 	/**
 	 * #### Emojis that I use to log to the console -> smile 😀 check ✅, cross ❌
 	 * @> loading 🔄
 	 * @> error: 🚩
 	 * @> info: ℹ️ 
-	 * @> deprecated: 🚫
+	 * @> deprecated: 💩
 	 //todo....
 	 * warning: '⚠️', * error: '🛑', info: 'ℹ️', question: '❓', *	exclamation: '❗', robot: '🤖', deploy: '🚀', *	bug: '🐛', code: '💻', git: '🐙', *	lol: '😂', not_working: '🚫', todo: '💡', *	task: '🗒', fake: '🤔', bad: '💀', *	good: '💯', nice: '🙌', very_nice: '🤗', *	very_good: '🤩', glass: '🍺', cheers: '🎉', *	thumbsup: '👍', thumbsdown: '👎', thumbsupdown: '👆', *	thumbsupdown2: '👇', thumbsupdown3: '👈', thumbsupdown4: '👉', *	thumbsupdown5: '👊', thumbsupdown6: '👋', flag: '🚩', bomb: '💣',
 	 */
