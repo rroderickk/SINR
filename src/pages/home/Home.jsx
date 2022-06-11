@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AppContext } from '@context/AppContext';
 import { config as endpoint } from './config'
-import { useQuery } from '../../hooks/useAxios'
+import { useQuery, useFetch, usePost, Log, Emoji, getDate} from '../../hooks/useAxios'
 import axios from 'axios';
 import Stack from '@mui/material/Stack';
 import Alert from '@mui/material/Alert';
@@ -9,15 +9,16 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Container from '@mui/material/Container';
 import { Layer } from '@containers/Layer'
 
+const contrastT = { color: '#333', filter: 'contrast(.00007)' };
 
 export const Home = () => {
 	const { state } = useContext(AppContext);
-	const { loading, error, data } = useQuery(()=> axios.get(endpoint.getPost))
+	const { loading, error, data } = useQuery(()=> axios.get(endpoint.POSTS))
 
 	if (loading) return <Loading/>
 
 	return <Container maxWidth='xl'>
-		<h6 style={{ color: '#333', filter: 'contrast(0.4)' }}>Home</h6>
+		<h6 style={contrastT}>Home</h6>
 
 		<Neumorphism p={'8px'}>
 			<Typography color={state.colors.crim}
@@ -28,6 +29,8 @@ export const Home = () => {
 			</Typography>
 
 			{error ? <Error/> : <DataTable_2 props={data}/>}
+
+			<h4 style={contrastT}>Data</h4>
 			{error ? <Error/> : <DataTable_3/>}
 		</Neumorphism>
 
@@ -120,19 +123,23 @@ export const Neumorphism = (props) => <>
 
 	export const DataTable_3 = () => {
 		const classes = usePaperStyles();
-		const [post, setPost] = React.useState([])
-
-		React.useEffect(() => {
-			axios.get(endpoint.getPost) .then(post=>setPost(post.data))
-		},[]);
+		const [arrayData, setArrayData] = React.useState([]);
+		const [url, setUrl] = React.useState(0);
+		const [response, data, isLoading] = useFetch(url, 'json');
+		const [post] = usePost(data);
 		
+		React.useEffect(() => {
+			setUrl(endpoint.POSTS);
+		},[url]);
+		
+
+		
+		const plusSButton = { width: '90%', cursor: 'pointer', border: 'none', backgroundColor: '#EAEBF3', color: '#333', };
 		const PlusButton = () => <>
 			<Neumorphism w='100px' m='40px auto' thin>
-				<button
-					style={{
-						width: '90%', cursor: 'pointer', border: 'none',
-						backgroundColor: '#EAEBF3', color: '#333',
-					}}>+</button>
+				<button style={plusSButton}>
+					+
+				</button>
 			</Neumorphism>
 		</>
 
@@ -141,14 +148,20 @@ export const Neumorphism = (props) => <>
 			<Paper className={classes.root}>
 				<Table style={{backgroundColor:'#EAEBF3', maxWidth: '100%', }}>
 					<Neumorphism p={'80px'}>
+						<h2 style={contrastT}>DATA POST</h2>
 						<TableHead> <HEADTABLE/> </TableHead>
-						<TableBody> <BODYTABLE>{post}</BODYTABLE> </TableBody>
+						<TableBody> 
+							<BODYTABLE isLoading={isLoading}>
+								{data}
+							</BODYTABLE> 
+						</TableBody>
 						<PlusButton/>
 					</Neumorphism>
 				</Table>
 			</Paper>
+			<_Date/>
 		</Neumorphism>
-	}
+	};
 
 
 	const HEADTABLE = () => <>
@@ -161,14 +174,17 @@ export const Neumorphism = (props) => <>
 		</TableRow>
 	</>
 
-	const BODYTABLE = ({children}) => <>
-		{ children?.map(row =>
+	const BODYTABLE = ({children, isLoading}) => <>
+		{children?.map(row =>
 			<TableRow key={row.id}>
-				<TableFragment>{row.id}</TableFragment>
-				<TableFragment> <NBUTTON> ✏️ </NBUTTON> </TableFragment>
-				<TableFragment> <NBUTTON> 🗑️ </NBUTTON> </TableFragment>
-				<TableFragment>{row.title}</TableFragment>
-				<TableFragment>{row.body}</TableFragment>
+				{ isLoading ?
+						<Loading/>
+					: <> <Td>{row.id}</Td>
+							<Td> <NBUTTON> ✏️ </NBUTTON> </Td>
+							<Td> <NBUTTON> 🗑️ </NBUTTON> </Td>
+							<Td>{row.title}</Td>
+							<Td>{row.body}</Td> </>
+				}
 			</TableRow>
 		)}
 	</>;
@@ -180,4 +196,6 @@ export const Neumorphism = (props) => <>
 	</>
 
 
-	const TableFragment =({children})=> <TableCell component='th' scope='row'>{children}</TableCell>
+	const Td =({children})=> <TableCell component='th' scope='row'>{children}</TableCell>
+
+	const _Date = () => <h4 style={contrastT}>{getDate()}</h4>

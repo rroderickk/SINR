@@ -64,3 +64,4 @@ npm install -D @mui/material @emotion/react @emotion/styled && npm install -D fo
 └───routes               //?-> Rutas de la aplicacion
 ```
 
+<img src='./public/doc.png' alt='doc' />

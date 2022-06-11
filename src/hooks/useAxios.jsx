@@ -9,7 +9,7 @@ import React, { useEffect } from 'react';
 	const SUCCESS = 'SUCCESS';
 	const ERROR = 'ERROR';
 
-	/**
+	/** ✅
 	 * If the action type is FETCH, return a new state object with loading set to true and error set to
 	 * null. If the action type is SUCCESS, return a new state object with data set to the payload and
 	 * loading set to false. If the action type is ERROR, return a new state object with error set to the
@@ -30,12 +30,12 @@ import React, { useEffect } from 'react';
 	}
 
 
-	/**
-	 * It takes a function that returns a promise, and returns an @object with data, loading, and error * properties
+
+
+	/** ✅
+	 * It takes a @function<- that returns a promise, and returns an @object with data, loading, and error * properties
 	 * @returns The return value is an object with three properties: 
-	 *  -  @data
-	 *  -  @loading
-	 *  -  @error
+	 *  @> {data ,  loading, error}
 	 */
 	export function useQuery(query) {
 		const [state, dispatch] = React.useReducer(reducer, {
@@ -66,22 +66,24 @@ import React, { useEffect } from 'react';
 	};
 
 
-	/** 💩 <- @Deprecated.
+
+
+	/** 💩 <- @Deprecated but still working.
 	 * UseAxios is a function that returns a promise that resolves to the
 	 *  - @data from the
 	 *  - @API call
 	 *  - @returns the @setData function.
 	 */
-	// import { useState } from "react";
-	// import axios from "axios";
-	// const API_URL = "https://jsonplaceholder.typicode.com/todos/";
+	// import { useState } from 'react';
+	// import axios from 'axios';
+	// const API_URL = 'https://jsonplaceholder.typicode.com/todos/';
 
 	// export const useAxios = async() => {
 	// 	const [data, setData] = useState([]);
 
 	// 	React.useEffect( async()=> {
 	// 		const response = await axios.get(API_URL);
-	// 		if (!response.data) throw new Error("No hubo respuesta");
+	// 		if (!response.data) throw new Error('No hubo respuesta');
 	// 		console.log(response.data);
 	// 		setData(response.data)
 	// 	},[])
@@ -92,7 +94,7 @@ import React, { useEffect } from 'react';
 
 
 
-	/**
+	/** ❓
 	 * If the browser supports localStorage, then it will return true, otherwise it will return false.
 	 * @returns A function that returns a boolean.
 	 */
@@ -113,10 +115,11 @@ import React, { useEffect } from 'react';
 
 
 
-	/**
-	 * It's a React hook that @fetches data from a URL and returns the response, the data, and a boolean
+	/** ✅
+	 * fetches data from a @URL <-, @type <-
 	 * indicating whether the data is loading.
-	 * @returns An @array with -> 3 <- elements.
+	 * @> [response, data, isLoading];
+	 * @Array with -> 3 <- elements.
 	 */
 	export function useFetch(url, type) {
 		const [data, setData] = React.useState([]);
@@ -157,16 +160,135 @@ import React, { useEffect } from 'react';
 
 
 
-	/**
-	 * UsePost() is a React hook that takes in an @array of data.
+	/** ✅
+	 * takes in an @array <- of data.
 	 */
 	export function usePost(data){
 		const [post, setPost] = React.useState([]);
 
 		useEffect(() => {
-			if(Array.isArray(data)){
-				setPost([...post, data]);
+			try {
+				// Log(Emoji.check, data)
+				if(data) return setPost(post.concat(data));
+			} catch (error) {
+					console.log('Error parsing JSON:', error, data);
 			}
 		},[data])
+
+		// Log(Emoji.bomb, post);
 		return post;
+	};
+
+
+
+
+	/** 🗒
+	 * takes an argument and tries to test it.
+	 * if it fails it will log the error to the console.
+	 */
+	export function ErrorCatcher(test){
+		try {
+			// if (typeof test === 'function') test();
+			// if (typeof test === 'object') test.map(item => item);
+			// todo
+		} catch (error) {
+			console.error('[🚩] ErrorCatcher [🚩]', error.name, error.message, error.stack);
+		}
+	};
+
+
+	/** 🤖
+	 * takes an @argument<- and logs it to the console.
+	 * @> @option <-
+	 * @> {@event} <-
+	 */
+	export function Log(o=null, e, l='🤖'){
+		!o ?  console.log(l, e)
+				: 	console.log(l, o, e);
+	};
+
+
+	/** ✅
+	 * It @returns the current date in the format of "Day, Month Date, Year"
+	 * @> date -> Sat Jun 11 2022 06:10:41
+	 */
+	export function getDate(){
+		// return new Date().toLocaleDateString();
+		return (Date()).toString().slice(0,25)
+	}
+
+
+	/** 💩 <- @Deprecated but it's a model.
+	 * Fetching data from the API. */
+	// React.useEffect(() => {
+	// 	axios
+	// 		.get(endpoint.POSTS)
+	// 		.then(post=> setArrayData(post.data))
+	// },[]);
+
+	/**
+	 * Emojis that I use to log to the console -> smile: 😀 check: ✅, cross: ❌,
+	 * @> loading 🔄,
+	 * @> error: 🚩,
+	 * @> info: ℹ️, 
+	 * @> deprecated: 🚫,
+	 //todo....
+	 * warning: '⚠️', * error: '🛑', info: 'ℹ️', question: '❓', *	exclamation: '❗', robot: '🤖', deploy: '🚀', *	bug: '🐛', code: '💻', git: '🐙', *	lol: '😂', not_working: '🚫', todo: '💡', *	task: '🗒', fake: '🤔', bad: '💀', *	good: '💯', nice: '🙌', very_nice: '🤗', *	very_good: '🤩', glass: '🍺', cheers: '🎉', *	thumbsup: '👍', thumbsdown: '👎', thumbsupdown: '👆', *	thumbsupdown2: '👇', thumbsupdown3: '👈', thumbsupdown4: '👉', *	thumbsupdown5: '👊', thumbsupdown6: '👋', flag: '🚩', bomb: '💣',
+	 */
+	export const Emoji = {
+	/**
+	 //todo....
+	 */
+	/** 😀 */
+		smile: '😀',
+
+	/** ✅ */
+		check: '✅',
+
+	/** ❌ */
+		cross: '❌',
+		loading: '🔄',
+
+	/** 💩 */
+		deprecated: '💩',
+		trash: '🗑',
+		warning: '⚠️',
+		error: '🛑',
+		info: 'ℹ️',
+
+	/** ❓ */
+		question: '❓',
+		exclamation: '❗',
+
+	/** 🤖 */
+		robot: '🤖',
+
+		deploy: '🚀',
+		bug: '🐛',
+		code: '💻',
+		git: '🐙',
+		lol: '😂',
+		not_working: '🚫',
+		todo: '💡',
+		task: '🗒',
+		fake: '🤔',
+		bad: '💀',
+		good: '💯',
+		nice: '🙌',
+		very_nice: '🤗',
+		very_good: '🤩',
+		glass: '🍺',
+		cheers: '🎉',
+		thumbsup: '👍',
+		thumbsdown: '👎',
+		thumbsupdown: '👆',
+		thumbsupdown2: '👇',
+		thumbsupdown3: '👈',
+		thumbsupdown4: '👉',
+		thumbsupdown5: '👊',
+		thumbsupdown6: '👋',
+		flag: '🚩',
+
+	/** 💣 */
+		bomb: '💣',
 	};
