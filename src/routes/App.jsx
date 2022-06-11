@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AppContext } from "@context/AppContext";
 import { useInitialState } from "@hooks/useInitialState";
 import { Layout } from "@containers/Layout";
-import { Home } from "@pages/home/Home";
+import { Home } from "../pages/home/Home";
 import { NodeMachine } from "@pages/nodemachine/NodeMachine";
 import { NotFound } from "@pages/notfound/NotFound";
 

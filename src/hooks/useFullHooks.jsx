@@ -1,4 +1,12 @@
+// My hooks by @CHEATMODES4 for React 18.0
+// Project: http://github.io/rroderickk/
+// Definitions by:  https://rroderickk.github.io/cv2
+// _MyHooks_ Version: 0.1
+
+// NOTE:
+// to 'react/experimental' go to the project. -> in construction ....todo.....
 import React, { useEffect } from 'react';
+
 
 /**
  * It takes a function that returns a @promise , and returns an @object with
@@ -227,11 +235,11 @@ import React, { useEffect } from 'react';
 	// },[]);
 
 	/**
-	 * Emojis that I use to log to the console -> smile: 😀 check: ✅, cross: ❌,
-	 * @> loading 🔄,
-	 * @> error: 🚩,
-	 * @> info: ℹ️, 
-	 * @> deprecated: 🚫,
+	 * #### Emojis that I use to log to the console -> smile 😀 check ✅, cross ❌
+	 * @> loading 🔄
+	 * @> error: 🚩
+	 * @> info: ℹ️ 
+	 * @> deprecated: 🚫
 	 //todo....
 	 * warning: '⚠️', * error: '🛑', info: 'ℹ️', question: '❓', *	exclamation: '❗', robot: '🤖', deploy: '🚀', *	bug: '🐛', code: '💻', git: '🐙', *	lol: '😂', not_working: '🚫', todo: '💡', *	task: '🗒', fake: '🤔', bad: '💀', *	good: '💯', nice: '🙌', very_nice: '🤗', *	very_good: '🤩', glass: '🍺', cheers: '🎉', *	thumbsup: '👍', thumbsdown: '👎', thumbsupdown: '👆', *	thumbsupdown2: '👇', thumbsupdown3: '👈', thumbsupdown4: '👉', *	thumbsupdown5: '👊', thumbsupdown6: '👋', flag: '🚩', bomb: '💣',
 	 */

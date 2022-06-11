@@ -65,3 +65,41 @@ npm install -D @mui/material @emotion/react @emotion/styled && npm install -D fo
 ```
 
 <img src='./public/doc.png' alt='doc' />
+
+#### La estructura de carpetas y JSX
+
+##### Mutable
+```js
+src/
+│   index.js              //?-> Entry Point
+│
+├───components
+│       TemporaryDrawer.jsx
+│
+├───containers
+│       Layer.jsx
+│       Layout.jsx
+│
+├───context
+│       AppContext.jsx
+│
+├───hooks
+│       useFullHooks.jsx
+│       useInitialState.jsx
+│
+├───pages
+│   ├───home
+│   │       config.js
+│   │       Home.jsx
+│   │
+│   ├───nodemachine            //?-> Use NodeMachine
+│   │       Logo.svg
+│   │       module.css
+│   │       NodeMachine.jsx
+│   │
+│   └───notfound
+│           NotFound.jsx
+│
+└───routes
+        App.jsx                //?-> Rutas
+```
